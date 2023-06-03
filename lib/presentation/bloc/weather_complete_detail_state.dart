@@ -1,4 +1,4 @@
-part of 'weather_detail_bloc.dart';
+part of 'weather_complete_detail_bloc.dart';
 
 class WeatherCompleteDetail extends Equatable {
   const WeatherCompleteDetail({

@@ -12,12 +12,16 @@ class WeatherRepositoryImpl implements WeatherRepository {
   final String weatherAPI = 'data/2.5';
 
   @override
-  Future<CityDetails> getCity(String query) async {
+  Future<List<CityDetails>> getCity(String query) async {
     final apiUrl = '$baseURL/$geoAPI/direct?q=$query&limit=5&appid=$apiKey';
     final response = await http.get(Uri.parse(apiUrl));
     if (response.statusCode == 200) {
-      final data = json.decode(response.body);
-      return CityDetails.fromJson(data);
+      final List<dynamic> data = json.decode(response.body);
+      final List<CityDetails> cities = [];
+      for (final d in data) {
+        cities.add(CityDetails.fromJson(d));
+      }
+      return cities;
     } else {
       throw Exception('Unable to find any city for $query');
     }

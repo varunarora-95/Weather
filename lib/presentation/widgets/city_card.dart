@@ -22,18 +22,18 @@ class CityCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                cityState?.city ?? 'City',
+                cityState?.cityDetails.name ?? 'City',
                 style: TextStyle(color: white, fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Text(
-                '${cityState?.temperature ?? 'NA'}\u2109',
-                style: TextStyle(color: white, fontSize: 16, fontWeight: FontWeight.w400),
+                '${cityState?.weatherDetails.temperature.temp?.toStringAsFixed(0) ?? 'NA'}$degree',
+                style: TextStyle(color: white, fontSize: 16),
               ),
             ],
           ),
           Text(
-            cityState?.weatherDescription ?? 'NA',
-            style: TextStyle(color: white, fontSize: 14, fontWeight: FontWeight.normal),
+            cityState?.weatherDetails.weather.first.main ?? 'NA',
+            style: TextStyle(color: white, fontSize: 14),
           ),
         ],
       ),
