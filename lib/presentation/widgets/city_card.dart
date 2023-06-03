@@ -23,17 +23,17 @@ class CityCard extends StatelessWidget {
             children: [
               Text(
                 cityState?.cityDetails.name ?? 'City',
-                style: TextStyle(color: white, fontSize: 16, fontWeight: FontWeight.w600),
+                style: TextStyle(color: offWhite, fontSize: 16, fontWeight: FontWeight.w600),
               ),
               Text(
                 '${cityState?.weatherDetails.temperature.temp?.toStringAsFixed(0) ?? 'NA'}$degree',
-                style: TextStyle(color: white, fontSize: 16),
+                style: TextStyle(color: offWhite, fontSize: 16),
               ),
             ],
           ),
           Text(
             cityState?.weatherDetails.weather.first.main ?? 'NA',
-            style: TextStyle(color: white, fontSize: 14),
+            style: TextStyle(color: offWhite, fontSize: 14),
           ),
         ],
       ),

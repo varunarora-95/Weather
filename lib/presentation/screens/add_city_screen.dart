@@ -52,7 +52,7 @@ class _AddCityScreenState extends State<AddCityScreen> {
               ),
             ),
           ),
-          Divider(height: 0.5, color: white),
+          Divider(height: 0.5, color: offWhite),
           const SizedBox(height: 15),
           if (_textEditingController.text.isNotEmpty && cities.isEmpty) ...[
             const Center(

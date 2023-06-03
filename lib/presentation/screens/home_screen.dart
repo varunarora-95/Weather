@@ -47,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SizedBox(height: 5),
                         Text(
                           'No cities added',
-                          style: TextStyle(color: white, fontSize: 16),
+                          style: TextStyle(color: offWhite, fontSize: 16),
                         ),
                       ],
                     ),
@@ -77,7 +77,6 @@ class _CityListWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
-      shrinkWrap: true,
       itemBuilder: (_, i) => InkWell(
         onTap: () => cities != null
             ? showModalBottomSheet<void>(
