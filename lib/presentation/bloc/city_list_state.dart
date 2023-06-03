@@ -2,25 +2,13 @@ part of 'city_list_bloc.dart';
 
 class CityState extends Equatable {
   const CityState({
-    required this.city,
-    required this.temperature,
-    required this.lat,
-    required this.lng,
-    required this.weatherCondition,
+    required this.cityDetails,
+    required this.weatherDetails,
   });
 
-  final String city, temperature;
-  final double lat, lng;
-  final int weatherCondition;
-
-  String get weatherDescription => weatherCondition.toString();
+  final CityDetails cityDetails;
+  final WeatherDetails weatherDetails;
 
   @override
-  List<Object?> get props => [
-        city,
-        temperature,
-        lat,
-        lng,
-        weatherCondition,
-      ];
+  List<Object?> get props => [cityDetails, weatherDetails];
 }

@@ -1,2 +1,4 @@
 .dart_tool
 .DS
+.flutter-plugins
+.flutter-plugins-dependencies

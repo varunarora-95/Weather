@@ -1,4 +1,7 @@
+import 'package:weather/domain/entity/coordinates.dart';
+
 class WeatherDetails {
+  late final Coordinates? coordinates;
   late final int dt;
   late final Temperature temperature;
   late final List<Weather> weather;
@@ -12,6 +15,7 @@ class WeatherDetails {
 
   WeatherDetails.fromJson(Map<String, dynamic> json) {
     dt = json['dt'];
+    coordinates = json['coord'] != null ? Coordinates.fromJson(json['coord']) : null;
     temperature = Temperature.fromJson(json['main']);
     weather = List.from(json['weather']).map((e) => Weather.fromJson(e)).toList();
     clouds = Clouds.fromJson(json['clouds']);
@@ -25,6 +29,7 @@ class WeatherDetails {
 
   Map<String, dynamic> toJson() {
     final data = <String, dynamic>{};
+    data['coords'] = coordinates;
     data['dt'] = dt;
     data['main'] = temperature.toJson();
     data['weather'] = weather.map((e) => e.toJson()).toList();

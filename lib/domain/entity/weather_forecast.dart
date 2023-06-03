@@ -1,3 +1,4 @@
+import 'package:weather/domain/entity/coordinates.dart';
 import 'package:weather/domain/entity/weather_details.dart';
 
 class WeatherForecast {
@@ -39,7 +40,7 @@ class City {
   });
   late final int id;
   late final String name;
-  late final Coord coord;
+  late final Coordinates coord;
   late final String country;
   late final int population;
   late final int timezone;
@@ -49,7 +50,7 @@ class City {
   City.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    coord = Coord.fromJson(json['coord']);
+    coord = Coordinates.fromJson(json['coord']);
     country = json['country'];
     population = json['population'];
     timezone = json['timezone'];
@@ -58,36 +59,15 @@ class City {
   }
 
   Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['id'] = id;
-    _data['name'] = name;
-    _data['coord'] = coord.toJson();
-    _data['country'] = country;
-    _data['population'] = population;
-    _data['timezone'] = timezone;
-    _data['sunrise'] = sunrise;
-    _data['sunset'] = sunset;
-    return _data;
-  }
-}
-
-class Coord {
-  Coord({
-    required this.lat,
-    required this.lon,
-  });
-  late final double lat;
-  late final double lon;
-
-  Coord.fromJson(Map<String, dynamic> json) {
-    lat = json['lat'];
-    lon = json['lon'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final _data = <String, dynamic>{};
-    _data['lat'] = lat;
-    _data['lon'] = lon;
-    return _data;
+    final data = <String, dynamic>{};
+    data['id'] = id;
+    data['name'] = name;
+    data['coord'] = coord.toJson();
+    data['country'] = country;
+    data['population'] = population;
+    data['timezone'] = timezone;
+    data['sunrise'] = sunrise;
+    data['sunset'] = sunset;
+    return data;
   }
 }
