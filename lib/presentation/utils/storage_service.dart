@@ -27,4 +27,16 @@ class StorageService {
     }
     return cities;
   }
+
+  static Future<void> removeCity(CityDetails cityDetails) async {
+    final sharedPreferences = await SharedPreferences.getInstance();
+    final savedCities = sharedPreferences.getStringList(_key);
+    List<CityDetails> cities = [];
+    if (savedCities != null) {
+      cities = savedCities.map((cd) => CityDetails.fromJson(json.decode(cd))).toList();
+    }
+    cities.removeWhere((cd) => cd.lat == cityDetails.lat && cd.lon == cityDetails.lon);
+    final encodedList = cities.map((cd) => json.encode(cd.toJson())).toList();
+    await sharedPreferences.setStringList(_key, encodedList);
+  }
 }
